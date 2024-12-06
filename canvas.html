@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>CDS Technical Test</title>
+  </head>
+  <body>
+    <h1>3D Viewer</h1>
+    <div id="canva">
+      <div class="canva_content">
+        <h2 id="file_name">File Name</h2>
+        <div class="canvas_content">
+          <canvas class="webgl"></canvas>
+          <div class="informations_content">
+            <h3>Informations</h3>
+            <ul>
+              <li>Vertices: </li>
+              <li>Triangles: </li>
+              <li>Size X: </li>
+              <li>Size Y: </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./canvas.js"></script>
+  </body>
+</html>

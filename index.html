@@ -1,19 +1,20 @@
-<!--index.html-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>CDS Technical Test</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <h1>3D Viewer</h1>
+    <div id="dropzone">
+      <div class="index_content">
+        <h3>Drag and drop your 3D Object</h3>
+        <p>or</p> 
+        <input type="file" id="fileInput" accept=".glb, .gltf, .usdz, .fbx">
+      </div>
+    </div>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>

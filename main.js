@@ -1,22 +1,83 @@
-// Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu , shell, ipcMain} = require('electron')
 const path = require('node:path')
 
+const menuItems = [
+  {
+    label: "Menu",
+  },
+  {
+    label: "File",
+    submenu: [
+      {
+        label: "New",
+        click: async () => {
+          createWindow();
+        },
+      },
+      {
+        label: "Open Canva",
+        click: async () => {
+          const canvas = new BrowserWindow({
+            height: 800,
+            width: 1000,
+          });
+
+          ipcMain.on("close-window-2", () => canvas.close());
+
+          canvas.webContents.openDevTools();
+          canvas.loadFile("canvas.html");
+          canvas.once("ready-to-show", () => canvas.show());
+        },
+      },
+      {
+        type: "separator",
+      },
+      {
+        label: "Learn More About CDS",
+        click: async () => {
+          await shell.openExternal("https://www.cognitive-design-systems.com/");
+        },
+      },
+      {
+        type: "separator",
+      },
+      {
+        label: "Exit",
+        click: () => app.quit(),
+      },
+    ],
+  },
+  {
+    label: "Window",
+    submenu: [
+      {
+        role: "Minimize",
+      },
+      {
+        role: "close",
+      },
+    ],
+  },
+];
+
+const menu = Menu.buildFromTemplate(menuItems);
+Menu.setApplicationMenu(menu);
+
 const createWindow = () => {
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 900,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
-  // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+  mainWindow.once("ready-to-show", () => mainWindow.show());
+
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
