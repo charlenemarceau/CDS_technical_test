@@ -18,7 +18,7 @@ const menuItems = [
         label: "Open Canva",
         click: async () => {
           const canvas = new BrowserWindow({
-            height: 800,
+            height: 900,
             width: 1000,
           });
 
@@ -65,8 +65,8 @@ Menu.setApplicationMenu(menu);
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 800,
     height: 900,
+    width: 1000,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }

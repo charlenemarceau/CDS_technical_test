@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>CDS Technical Test</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <h1>3D Viewer</h1>
@@ -26,5 +34,6 @@
       </div>
     </div>
     <script type="module" src="./canvas.js"></script>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>

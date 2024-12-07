@@ -2,37 +2,7 @@
 // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import GUI from 'lil-gui'; 
 // import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js'
-
-
-/**
- * LIL GUI - DEBUG
- */
-// const gui = new GUI({
-//   width: 300,
-//   title: 'Nice Debug UI',
-//   closeFolders: false,
-// });
-
-// const material = new THREE.MeshPhysicalMaterial();
-
-
-// gui.add(material, 'metalness').min(0).max(1).step(0.0001);
-// gui.add(material, 'roughness').min(0).max(1).step(0.0001);
-
-// Canvas
-const canvas = document.querySelector('canvas.webgl');
-
-// Scene
-// const scene = new THREE.Scene();
-
-// const textureLoader = new THREE.TextureLoader();
-
-
-
-// Controls
-// const controls = new OrbitControls(camera, canvas);
-// controls.enableDamping = true;
-
+// import { BrowserWindow } from './node_modules/electron';
 
 const dropzone = document.getElementById('dropzone');
 
@@ -49,12 +19,16 @@ dropzone.addEventListener('drop', (e) => {
     if (file.name !== undefined) {
       console.log('file', file);
       const titleName = document.getElementById("file_name");
-      titleName.innerText = file.name;
-      console.log('title', titleName)
-      window.location="/canvas.html";
-      
-    }
+      // titleName = file.name;
+      // console.log('title', titleName)
+      location.href='canvas.html';
+      document.addEventListener('DOMContentLoaded', e => {
+        const h2 = document.querySelector("h2")
+  
+        h2.innerText = "Correct Text"
+      })
 
+    }
   }
 })
 
@@ -70,7 +44,11 @@ const getFileName = (event) => {
   const fileName = files[0].name;
   console.log('file name: ' + fileName);
   if (fileName !== undefined) {
-    window.location="/canvas.html";
+    location.href='canvas.html';
+    document.addEventListener('DOMContentLoaded', e => {
+      const h2 = document.querySelector("h2")
 
+      h2.innerText = "Correct Text"
+    })
   }
 }

@@ -20,6 +20,7 @@ a:hover {
 }
 
 h1 {
+  top: 30px;
   font-size: 3.2em;
   line-height: 1.1;
   display: flex;
@@ -47,21 +48,25 @@ button:focus-visible {
 }
 
 #dropzone {
-  height: 678px;
-  border:2px dashed #485DED;
-  border-radius: 10px;
   display: flex;
-  margin: auto;
+  margin: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  height: 678px;
+  border:2px dashed #485DED;
+  border-radius: 10px;
 }
 
 .index_content {
   width: 500px;
   max-width: 90%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 input[type=file]::file-selector-button {
@@ -79,17 +84,27 @@ input[type=file]::file-selector-button:hover {
   color: black;
 }
 
+
+
 #file_name {
   text-align: center;
 }
 
 .canvas_content {
+  margin: 20px;
   display: flex;
   justify-content: space-around;
+  border:2px dashed #485DED;
+  border-radius: 10px;
+  /* background: #485eed83; */
 }
 
 .informations_content {
-  background: #485DED;
   padding: 10px;
   flex: auto;
+}
+
+canvas {
+  padding: 10px;
+  border-radius: 50px;
 }
